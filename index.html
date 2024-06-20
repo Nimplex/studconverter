@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: "Lato", sans-serif;
+                font-style: normal;
+                background: #0f0f0f;
+                color: white;
+            }
+            #container {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                gap: 15px;
+            }
+            #input {
+                gap: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            input {
+                font-size: 20px;
+                border: 1px solid gray;
+                outline: none;
+                border-radius: 5px;
+                padding: 6px;
+                color: white;
+                background: #1f1f1f;
+                text-align: center;
+                width: 200px;
+            }
+            button {
+                width: 212px;
+                font-size: 20px;
+                border: 1px solid gray;
+                outline: none;
+                border-radius: 5px;
+                padding: 6px;
+                color: white;
+                background: #1f1f1f;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="input">
+                <div>
+                    <input type="text" id="studs-input" placeholder="studs">
+                </div>
+                <div>
+                    <input type="text" id="meters-input" placeholder="meters">
+                </div>
+                <button id="count">LICZ</button>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                const studs = document.getElementById("studs-input");
+                const meters = document.getElementById("meters-input");
+                const count = document.getElementById("count");
+
+                count.addEventListener("click", function() {
+                    if (studs.value === "" && meters.value !== "") {
+                        studs.value = (meters.value * 3.571428).toFixed(2);
+                    } else {
+                        meters.value = (studs.value / 3.571428).toFixed(2);
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
