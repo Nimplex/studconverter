@@ -81,8 +81,13 @@
                 const meters = document.getElementById("meters-input");
                 const count = document.getElementById("count");
 
+                let lastChanged = 0;
+
+                studs.addEventListener("change", function() { lastChanged = 1 });
+                meters.addEventListener("change", function() { lastChanged = 2 });
+
                 count.addEventListener("click", function() {
-                    if (studs.value === "" && meters.value !== "") {
+                    if (lastChanged == 2) {
                         studs.value = (meters.value * 3.571428).toFixed(2);
                     } else {
                         meters.value = (studs.value / 3.571428).toFixed(2);
